@@ -39,7 +39,7 @@ public class LoginPage {
     }
 
     public void enterPassword(String password){
-        loginEmail_id.sendKeys(password);
+        loginPassword_id.sendKeys(password);
     }
 
     public void clickLoginButton(){
