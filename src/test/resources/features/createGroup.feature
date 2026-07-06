@@ -7,7 +7,7 @@ Feature: Create Group
     And i enter password <password>
     When i click login button
     Then  i should be successfully logged in
-    And i click on the logged in user
+    And i click on the menu button
     And i click on the admin panel
     And i click on the groups tab
     And i click on the create group button
@@ -22,4 +22,4 @@ Feature: Create Group
 
     Examples:
       | email            | password  | groupName | groupDescription | year | maxCapacity | startDate  | endDate    |
-      | Ndosi@test.co.za | @12345678 | my group  | my description   | 2026 | 10          | 2026/10/19 | 2026/10/21 |
+      | admin@gmail.com | @12345678 | my group  | my description   | 2026 | 10          | 2026/10/19 | 2026/10/21 |

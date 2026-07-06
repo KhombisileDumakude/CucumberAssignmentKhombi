@@ -1,8 +1,12 @@
 package Steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.PendingException;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 public class stepDef extends Base {
@@ -36,41 +40,41 @@ public class stepDef extends Base {
 
 
 
-    @And("i click on the logged in user")
-    public void iClickOnTheLoggedInUser() {
-
+    @And("i click on the menu button")
+    public void iClickOnTheMenuButton() {
+        dashboardPage.clickMenuButton();
     }
 
     @And("i click on the admin panel")
     public void iClickOnTheAdminPanel() {
-
+        dashboardPage.clickAdminPanel();
     }
 
     @And("i click on the groups tab")
     public void iClickOnTheGroupsTab() {
-
+        dashboardPage.clickGroupsButton();
     }
 
     @And("i click on the create group button")
     public void iClickOnTheCreateGroupButton() {
-
+        dashboardPage.clickCreateNewGroup();
     }
 
 
     @And("i enter group name (.*)$")
     public void iEnterGroupNameGroupName(String groupName) {
-
+        dashboardPage.enterGroupName(groupName);
     }
 
     @And("i enter group description (.*)$")
     public void iEnterGroupDescriptionGroupDescription(String groupDescription) {
-
+        dashboardPage.enterGroupDescription(groupDescription);
     }
 
 
     @And("i enter year (.*)$")
-    public void iEnterYearYear(int year) {
-
+    public void iEnterYearYear(String year) {
+        dashboardPage.enterYear(year);
     }
 
     @And("i enter maximum capacity (.*)$")
@@ -98,4 +102,14 @@ public class stepDef extends Base {
     public void iShouldSeeTheGroupCreatedSuccessfully() {
 
     }
+
+    @AfterStep
+    public void addScreenshots(Scenario scenario){
+        //if you want screenshots from everything then you comment out the if statement and remain with code inside if statement
+        if (scenario.isFailed()){
+            byte[] screenshots=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshots, "image/png", "image");
+        }
+    }
+
 }
