@@ -17,9 +17,9 @@ Feature: Create Group
     And i enter maximum capacity <maxCapacity>
     And i enter start date <startDate>
     And i enter end date <endDate>
-    Then i should see the group created successfully
+    Then i click create group
 
 
     Examples:
-      | email            | password  | groupName | groupDescription | year | maxCapacity | startDate  | endDate    |
+      | email           | password  | groupName | groupDescription | year | maxCapacity | startDate  | endDate    |
       | admin@gmail.com | @12345678 | my group  | my description   | 2026 | 10          | 2026/10/19 | 2026/10/21 |

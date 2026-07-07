@@ -36,6 +36,18 @@ public class DashboardPage {
     @FindBy(xpath = "//input[@name='year']")
     WebElement year_xpath;
 
+    @FindBy(xpath = "//input[@name='maxCapacity']")
+    WebElement maxCapacity_xpath;
+
+    @FindBy(xpath = "//input[@name='startDate']")
+    WebElement startDate_xpath;
+
+    @FindBy(xpath = "//input[@name='endDate']")
+    WebElement endDate_xpath;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Create Group']")
+    WebElement createGroup_xpath;
+
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -79,5 +91,27 @@ public class DashboardPage {
     public void enterYear(String year){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(year_xpath));
         year_xpath.sendKeys(year);
+    }
+
+    public void enterMaxCapacity(String maxCapacity){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(maxCapacity_xpath));
+        //maxCapacity_xpath.click();
+        maxCapacity_xpath.clear();
+        maxCapacity_xpath.sendKeys(maxCapacity);
+    }
+
+    public void enterStartDate(String startDate){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(startDate_xpath));
+        startDate_xpath.sendKeys(startDate);
+    }
+
+    public void enterEndDate(String endDate){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(endDate_xpath));
+        endDate_xpath.sendKeys(endDate);
+    }
+
+    public void clickCreateGroup(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(createGroup_xpath));
+        createGroup_xpath.click();
     }
 }

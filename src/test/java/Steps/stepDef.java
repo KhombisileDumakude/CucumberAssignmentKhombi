@@ -78,18 +78,18 @@ public class stepDef extends Base {
     }
 
     @And("i enter maximum capacity (.*)$")
-    public void iEnterMaximumCapacityMaxCapacity(int maxCapacity) {
-
+    public void iEnterMaximumCapacityMaxCapacity(String maxCapacity) {
+        dashboardPage.enterMaxCapacity(maxCapacity);
     }
 
     @And("i enter start date (.*)$")
     public void iEnterStartDateStartDate(String startDate) {
-
+        dashboardPage.enterStartDate(startDate);
     }
 
     @And("i enter end date (.*)$")
     public void iEnterEndDateEndDate(String endDate) {
-
+        dashboardPage.enterEndDate(endDate);
     }
 
 
@@ -98,10 +98,7 @@ public class stepDef extends Base {
     }
 
 
-    @Then("i should see the group created successfully")
-    public void iShouldSeeTheGroupCreatedSuccessfully() {
 
-    }
 
     @AfterStep
     public void addScreenshots(Scenario scenario){
@@ -112,4 +109,8 @@ public class stepDef extends Base {
         }
     }
 
+    @Then("i click create group")
+    public void iClickCreateGroup() {
+        dashboardPage.clickCreateGroup();
+    }
 }
